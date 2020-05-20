@@ -131,7 +131,7 @@ Temporary Items
 # Custom
 .DS_Store
 bookstore/.settings
-bookstore/.build
+bookstore/build
 bookstore/.DS_Store
 bookstore/.classpath
 bookstore/.project
