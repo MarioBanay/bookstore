@@ -128,4 +128,17 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Custom
+.DS_Store
+bookstore/.settings
+bookstore/.build
+bookstore/.DS_Store
+bookstore/.classpath
+bookstore/.project
+bookstore/.hibernate.reveng.xml
+
+
+
+
+
 # End of https://www.gitignore.io/api/osx,java,eclipse,java-web
