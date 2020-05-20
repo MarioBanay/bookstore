@@ -1,1 +1,6 @@
-/build/
+# Custom
+
+.DS_Store
+.classpath
+.project
+.hibernate.reveng.xml
