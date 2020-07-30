@@ -23,7 +23,7 @@ import javax.persistence.Table;
     
     
 })
-@Table(name = "users", catalog = "bookstoredb")
+@Table(name = "users", catalog = "marioban_bookstore")
 public class Users implements java.io.Serializable {
 
     /**

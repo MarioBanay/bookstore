@@ -30,7 +30,7 @@ public class CustomerLoginFilter implements Filter {
 	    throws IOException, ServletException {
 
 	HttpServletRequest httpRequest = (HttpServletRequest) request;
-	// false will not create another session if its already exists
+	// false will not create another session if it already exists
 	HttpSession session = httpRequest.getSession(false);
 
 	String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
@@ -46,13 +46,18 @@ public class CustomerLoginFilter implements Filter {
 	
 	System.out.println("Path: " + path);
 	System.out.println("loggedIn: " + loggedIn);
+	
 
 	if (!loggedIn && isLoginRequired(requestURL)) {
 	    String queryString = httpRequest.getQueryString();
 	    String redirectURL = requestURL;
 	    
+		System.out.println("getQueryString(): " + httpRequest.getQueryString());
+
+	    
 	    if (queryString != null) {
 		redirectURL = redirectURL.concat("?").concat(queryString);
+		System.out.println("check: " + redirectURL);
 	    }
 	    
 	    session.setAttribute("redirectURL", redirectURL);

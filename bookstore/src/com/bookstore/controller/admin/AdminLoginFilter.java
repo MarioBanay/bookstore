@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+// We want to intercept all requests that are coming from admin...
 @WebFilter("/admin/*")
 public class AdminLoginFilter implements Filter {
 
@@ -28,10 +29,15 @@ public class AdminLoginFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 		throws IOException, ServletException {
+		
+	// fetching session from request	
 	HttpServletRequest httpRequest = (HttpServletRequest) request;
+	// false assures that if the session doesn't exist will not be created
 	HttpSession session = httpRequest.getSession(false);
 	
+	// user is logged in if session is not null and attribute "useremail" is not null
 	boolean loggedIn = session != null && session.getAttribute("useremail") != null;
+	
 	String loginURI = httpRequest.getContextPath() + "/admin/login";
 	boolean loginRequest = httpRequest.getRequestURI().equals(loginURI);
 	boolean loginPage = httpRequest.getRequestURI().endsWith("login.jsp");
@@ -42,7 +48,7 @@ public class AdminLoginFilter implements Filter {
 		System.out.println("test");
 		
 	} else if (loggedIn || loginRequest) {
-		System.out.println("user logged in");
+		System.out.println("logged in: " + loggedIn + ". loginRequest: " + loginRequest);
 		chain.doFilter(request, response);	
 	} else {
 		System.out.println("user not logged in");
@@ -50,7 +56,6 @@ public class AdminLoginFilter implements Filter {
 		dispatcher.forward(request, response);
 		
 	}
-	
 }
 
     public void init(FilterConfig fConfig) throws ServletException {

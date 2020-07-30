@@ -22,7 +22,12 @@ public class AdminLoginServlet extends HttpServlet {
 	    throws ServletException, IOException {
 	
 	UserServices userServices = new UserServices(request, response);
+	System.out.println("AdminLoginServlet() - calling userServices.login()");
+
 	userServices.login();
+	
+	System.out.println("AdminLoginServlet() - after calling userServices.login()");
+
     }
 
 }
