@@ -28,11 +28,11 @@
 			<table>
 				<tr>
 					<td>Email:</td>
-					<td><input type="text" name="email" id="email" size="20"></td>
+					<td><input type="text" name="email" value="mario@mail.com" id="email" size="20"></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
-					<td><input type="password" name="password" id="password"
+					<td><input type="password" value="password" name="password" id="password"
 						size="20"></td>
 				</tr>
 				<tr>
